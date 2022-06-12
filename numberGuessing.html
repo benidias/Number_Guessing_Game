@@ -1,0 +1,79 @@
+<!DOCTYPE html>  
+<html lang="en">
+    <head>  
+        <meta charset="UTF-8">  
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <title>NumberGuessingGame</title>  
+        <link rel="stylesheet" href="numberGuessing.js">  
+        <link rel="preconnect" href="https://fonts.gstatic.com">  
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">  
+    </head>
+    <body>
+        <div id="wrapper">
+            <section>
+                <div class="container" style="padding-top: 50px;">
+                    <div class="heading-title heading-dotted text-center">
+                        <h2>Welcome to our Number Guessing Game.</h2>
+                    </div>
+                </div>
+                <div class="row mix-grid">
+                    <div class="col-md-12 col-sm-9">
+                        <div class="card card-defaut">
+                            <div class="card-block">
+                                <form class="validate" method="post" enctype="multipart/form-data"  data-toastr-position="top-right">
+                                    <fieldset>
+                                        <div class="col-md-4">
+                                            <label>Choose your difficulty</label>
+                                            <div class="fancy-form">
+                                                <ul id="difficulty">
+                                                    <li>
+                                                        <input type="radio" name="difficultyType" value="very_easy">Very Easy
+                                                    </li>
+                                                </ul>
+                                                <ul id="difficulty">
+                                                    <li>
+                                                        <input type="radio" name="difficultyType" value="easy">Easy
+                                                    </li>
+                                                </ul>
+                                                <ul id="difficulty">
+                                                    <li>
+                                                        <input type="radio" name="difficultyType" value="medium">Medium
+                                                    </li>
+                                                </ul>
+                                                <ul id="difficulty">
+                                                    <li>
+                                                        <input type="radio" name="difficultyType" value="difficult">Difficult
+                                                    </li>
+                                                </ul>
+                                                <ul id="difficulty">
+                                                    <li>
+                                                        <input type="radio" name="difficultyType" value="very_difficult">Very Difficult
+                                                    </li>
+                                                </ul>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="container">  
+                                            <h3>I am Thinking of a number Between 1-100.</h3>  
+                                            <h3>Can you Guess it ?</h3>  
+                                              <input type="number" placeholder="pick your number" id="guess"><br>  
+                                              <button class="btn btn-danger"  onclick="play()" type="button"  id="my_btn">GUESS</button>  
+                                              <p id="message1">No. of Guess Remain: 10</p>  
+                                              <p id="message2">Guessed number are : none</p>  
+                                              <p id="message3"></p>  
+                                          </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>  
+            
+           <script src="numberGuessing.js"></script>
+        </div>  
+    </body>  
+  
+</html>  
