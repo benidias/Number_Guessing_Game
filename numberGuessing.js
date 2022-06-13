@@ -1,7 +1,12 @@
 var msg1 = document.getElementById("message1")  
 var msg2 = document.getElementById("message2")  
-var msg3 = document.getElementById("message3")  
-var result = 0;  
+var msg3 = document.getElementById("message3")
+var answerVeryEasy = Math.floor(Math.random()*10) + 1;  
+var answerEasy = Math.floor(Math.random()*10) + 1;
+var answerMedium = Math.floor(Math.random()*100) + 1;
+var answerDifficult = Math.floor(Math.random()*500) + 1;
+var answerVeryDifficult = Math.floor(Math.random()*1000) + 1;
+result = 0;  
 var noOfGuessesVeryEasy = Number.MAX_SAFE_INTEGER;
 var noOfGuessesEasy = 5;
 var noOfGuessesMedium= 5;
@@ -12,8 +17,9 @@ var guesses_num = [];
 $(document).ready(function(){
     $('input[type=radio]').click(function(){
 
-        
+        getAnswer()
         restartGame()
+        
         
         
         
@@ -27,7 +33,7 @@ $(document).ready(function(){
 function play(){  
    var user_guess = document.getElementById("guess").value;
 //    let numberTries = new numberOfTries()  
-   if(user_guess < 1 || user_guess > 100 ){  
+   if(user_guess < 1 || user_guess > 1000 ){  
      alert("Please Enter a number Between 1 to 100");  
    }  
    else{
@@ -68,7 +74,7 @@ function restartGame(){
     msg1 = document.getElementById("message1")  
     msg2 = document.getElementById("message2")  
     msg3 = document.getElementById("message3")  
-    result = 0;  
+    result = 0
     noOfGuessesVeryEasy = Number.MAX_SAFE_INTEGER;
     noOfGuessesEasy = 5;
     noOfGuessesMedium= 5;
@@ -87,7 +93,7 @@ function getAnswer(){
 
         
 
-        answer = Math.floor(Math.random()*10) + 1
+        result = answerVeryEasy
 
         
     }
@@ -95,42 +101,42 @@ function getAnswer(){
 
         
 
-        answer = Math.floor(Math.random()*10) + 1
+        result = answerEasy
 
         
 
         if(noOfGuessesEasy<=0){
-            alert("Game over. the number was " + answer)
+            alert("Game over. the number was " + result)
         } 
     }
     if(tries == "medium"){
 
-        answer = Math.floor(Math.random()*100) + 1
+        result = answerMedium
 
         noOfGuessesMedium -= 1;
         if(noOfGuessesMedium<=0){
-            alert("You finished your number of tries")
+            alert("Game over. the number was " + result)
             
         } 
     }
     if(tries == "difficult"){
 
-        answer = Math.floor(Math.random()*500) + 1
+         result = answerDifficult
 
         noOfGuessesDifficult -= 1;
         if(noOfGuessesDifficult<=0){
-            alert("You finished your number of tries")
+            alert("Game over. the number was " + result)
         }
     }
     if(tries == "very_difficult"){
 
-        answer = Math.floor(Math.random()*1000) + 1
+        result = answerVeryDifficult
 
         noOfGuessesVeryDifficult -= 1;
         if(noOfGuessesVeryDifficult<=0){
-            alert("You finished your number of tries")
+            alert("Game over. the number was " + result)
         }
-    } return answer
+    } return result
 } 
 
 function numberOfTries(){
