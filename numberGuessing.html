@@ -58,9 +58,9 @@
                                             <h3>I am Thinking of a number Between 1-100.</h3>  
                                             <h3>Can you Guess it ?</h3>  
                                               <input type="number" placeholder="pick your number" id="guess"><br>  
-                                              <button class="btn btn-danger"  onclick="play()" type="button"  id="my_btn">GUESS</button>  
-                                              <p id="message1">No. of Guess Remain: 10</p>  
-                                              <p id="message2">Guessed number are : none</p>  
+                                              <button class="btn btn-danger"  onclick="numberOfTries()" type="button"  id="my_btn">GUESS</button>  
+                                              <p id="message1">No. of Guess Remain: </p>  
+                                              <p id="message2">Guessed number are : </p>  
                                               <p id="message3"></p>  
                                           </div>
                                     </fieldset>
@@ -71,7 +71,11 @@
                 </div>
                 
             </section>  
-            
+            <script
+           src="https://code.jquery.com/jquery-3.6.0.min.js"
+           integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+           crossorigin="anonymous">
+           </script>
            <script src="numberGuessing.js"></script>
         </div>  
     </body>  
