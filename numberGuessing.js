@@ -210,7 +210,7 @@ function numberOfTries(){
      }  
      else if(user_guess == getAnswer()){  
        msg1.textContent = "Congratulations! You won !!"  
-       msg2.textContent = "the Number was " + answer  
+       msg2.textContent = "the Number was " + getAnswer()  
        msg3.textContent = " ";
        restartGame()   
      }  
