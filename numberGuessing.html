@@ -5,14 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">  
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         <title>NumberGuessingGame</title>  
-        <link rel="stylesheet" href="numberGuessing.js">  
+        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
         <link rel="preconnect" href="https://fonts.gstatic.com">  
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">  
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
     </head>
     <body>
         <div id="wrapper">
             <section>
-                <div class="container" style="padding-top: 50px;">
+                <div class="col-md-4" style="padding-top: 50px;">
                     <div class="heading-title heading-dotted text-center">
                         <h2>Welcome to our Number Guessing Game.</h2>
                     </div>
@@ -24,7 +24,7 @@
                                 <form class="validate" method="post" enctype="multipart/form-data"  data-toastr-position="top-right">
                                     <fieldset>
                                         <div class="col-md-4">
-                                            <label>Choose your difficulty</label>
+                                            <label><span><em>CHOOSE YOUR DIFFICULTY</em></span></label>
                                             <div class="fancy-form">
                                                 <ul id="difficulty">
                                                     <li>
@@ -54,14 +54,14 @@
                                                 
                                             </div>
                                         </div>
-                                        <div class="container">  
+                                        <div class="container ">  
                                             <h3>I am Thinking of a number Between 1-100.</h3>  
-                                            <h3>Can you Guess it ?</h3>  
+                                            <h4>Can you Guess it ?</h4>  
                                               <input type="number" placeholder="pick your number" id="guess"><br>  
                                               <button class="btn btn-danger"  onclick="numberOfTries()" type="button"  id="my_btn">GUESS</button>  
-                                              <p id="message1">No. of Guess Remain: </p>  
-                                              <p id="message2">Guessed number are : </p>  
-                                              <p id="message3"></p>  
+                                              <p id="message1">No. of Guess: </p>  
+                                              <p id="message2">No. of Guess Remain: </p>  
+                                              <p id="message3">Guessed number are :</p>  
                                           </div>
                                     </fieldset>
                                 </form>
@@ -76,7 +76,7 @@
            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
            crossorigin="anonymous">
            </script>
-           <script src="numberGuessing.js"></script>
+           <script src="assets/js/numberGuessing.js"></script>
         </div>  
     </body>  
   

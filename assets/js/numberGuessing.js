@@ -18,6 +18,8 @@ var guesses_num = [];
 $(document).ready(function(){
     $('input[type=radio]').click(function(){
 
+        
+
         getAnswer()
         restartGame()
         
@@ -27,6 +29,31 @@ $(document).ready(function(){
         
         
 
+    })
+
+    $('input[name=difficultyType]').click(function(){
+        
+        $(".container").show()
+        var guess_easy = "unlimited";
+        if ($(this).attr("value") == "very_easy"){
+            msg1.textContent = "No. of Guess: " + guess_easy;
+        }
+
+        if ($(this).attr("value") == "easy"){
+            msg1.textContent = "No. of Guess: " + noOfGuessesEasy;
+        }
+
+        if ($(this).attr("value") == "medium"){
+            msg1.textContent = "No. of Guess: " + noOfGuessesMedium;
+        }
+
+        if ($(this).attr("value") == "difficult"){
+            msg1.textContent = "No. of Guess: " + noOfGuessesDifficult;
+        }
+
+        if ($(this).attr("value") == "very_difficult"){
+            msg1.textContent = "No. of Guess: " + noOfGuessesVeryDifficult;
+        }
     })
 })
 
@@ -85,6 +112,7 @@ function getAnswer(){
 
         
 
+        noOfGuessesEasy -= 1;
         if(noOfGuessesEasy<=0){
             alert("Game over. the number was " + result)
         } 
@@ -132,7 +160,7 @@ function numberOfTries(){
      if(user_guess < getAnswer()){ 
          
      msg1.textContent = "Your Guess is Too low"  
-     msg2.textContent = "";  
+     msg2.textContent = "No. Of Guess Remain: ";  
      msg3.textContent = "Guessed Number Are: " +  
      guesses_num;
         
@@ -140,7 +168,7 @@ function numberOfTries(){
      else if(user_guess > getAnswer()){
           
        msg1.textContent = "Your Guess is Too High"  
-       msg2.textContent = "";  
+       msg2.textContent = "No. Of Guess Remain: "; 
        msg3.textContent = "Guessed Number Are: " +  
        guesses_num;  
      }  
@@ -148,6 +176,8 @@ function numberOfTries(){
        msg1.textContent = "Congratulations! You won !!"  
        msg2.textContent = "the Number was " + getAnswer()  
        msg3.textContent = " ";
+       Message();
+       reloadThePage()
        restartGame()   
      }  
     
@@ -156,5 +186,10 @@ function numberOfTries(){
 
 }
 
-
-
+function Message(){
+    alert("Congratulations you won");
+    
+}
+function reloadThePage(){
+    window.location.reload(false);
+} 
