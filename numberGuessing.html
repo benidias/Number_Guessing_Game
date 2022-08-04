@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         <title>NumberGuessingGame</title>  
         <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+        <script defer src="assets/js/numberGuessing.js"></script> 
         <link rel="preconnect" href="https://fonts.gstatic.com">  
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
     </head>
@@ -21,41 +22,41 @@
                     <div class="col-md-12 col-sm-9">
                         <div class="card card-defaut">
                             <div class="card-block">
-                                <form class="validate" method="post" enctype="multipart/form-data"  data-toastr-position="top-right">
+                                <form class="validate" method="post" enctype="multipart/form-data"  data-toastr-position="top-right" >
                                     <fieldset>
                                         <div class="col-md-4">
                                             <label><span><em>CHOOSE YOUR DIFFICULTY</em></span></label>
                                             <div class="fancy-form">
                                                 <ul id="difficulty">
                                                     <li>
-                                                        <input type="radio" name="difficultyType" value="very_easy">Very Easy
+                                                        <input type="radio" name="difficultyType" value="very_easy"  >Very Easy
                                                     </li>
                                                 </ul>
                                                 <ul id="difficulty">
                                                     <li>
-                                                        <input type="radio" name="difficultyType" value="easy">Easy
+                                                        <input type="radio" name="difficultyType" value="easy" >Easy
                                                     </li>
                                                 </ul>
                                                 <ul id="difficulty">
                                                     <li>
-                                                        <input type="radio" name="difficultyType" value="medium">Medium
+                                                        <input type="radio" name="difficultyType" value="medium" >Medium
+                                                    </li>
+                                                </ul>
+                                                <ul id="difficulty"> 
+                                                    <li>
+                                                        <input type="radio" name="difficultyType" value="difficult" >Difficult
                                                     </li>
                                                 </ul>
                                                 <ul id="difficulty">
                                                     <li>
-                                                        <input type="radio" name="difficultyType" value="difficult">Difficult
-                                                    </li>
-                                                </ul>
-                                                <ul id="difficulty">
-                                                    <li>
-                                                        <input type="radio" name="difficultyType" value="very_difficult">Very Difficult
+                                                        <input type="radio" name="difficultyType" value="very_difficult" >Very Difficult
                                                     </li>
                                                 </ul>
                                                 
                                             </div>
                                         </div>
                                         <div class="container ">  
-                                            <h3>I am Thinking of a number Between 1-100.</h3>  
+                                            <h3><p id="first">I am Thinking of a number Between 1-100.</p></h3>  
                                             <h4>Can you Guess it ?</h4>  
                                               <input type="number" placeholder="pick your number" id="guess"><br>  
                                               <button class="btn btn-danger"  onclick="numberOfTries()" type="button"  id="my_btn">GUESS</button>  
