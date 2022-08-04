@@ -3,32 +3,47 @@ $(document).ready(function(){
     $('input[name=difficultyType]').click(function(){
 
         $(".container").show()
+        $(".fancy-form").hide()
+        $("#text").hide()
+        $("#greet").hide()
+        $("#level").show()
+        $("#message3").show()
         
         var guess_easy = "unlimited";
         if ($(this).attr("value") == "very_easy"){
             msg.textContent = "I am Thinking of a number Between 1 to 10";
-            msg1.textContent = "No. of Guess: " + guess_easy;
+            msg1.textContent = "";
+            second.textContent = "Total Number Of Guess: " + guess_easy
+            level.textContent = "Your current level is: VERY EASY" 
             
         }
 
         if ($(this).attr("value") == "easy"){
             msg.textContent = "I am Thinking of a number Between 1 to 10";
-            msg1.textContent = "No. of Guess: " + $noOfGuessesEasy;
+            msg1.textContent = "" ;
+            level.textContent = "Your current level is: EASY"
+            second.textContent = "Total Number Of Guess: " + $noOfGuessesEasy 
         }
 
         if ($(this).attr("value") == "medium"){
             msg.textContent = "I am Thinking of a number Between 1 to 100";
-            msg1.textContent = "No. of Guess: " + noOfGuessesMedium;
+            msg1.textContent = "" ;
+            level.textContent = "Your current level is: MEDIUM"
+            second.textContent = "Total Number Of Guess: " + noOfGuessesMedium
         }
 
         if ($(this).attr("value") == "difficult"){
             msg.textContent = "I am Thinking of a number Between 1 to 500";
-            msg1.textContent = "No. of Guess: " + noOfGuessesDifficult;
+            msg1.textContent = "";
+            level.textContent = "Your current level is: DIFFICULT"
+            second.textContent = "Total Number Of Guess: " + noOfGuessesDifficult
         }
 
         if ($(this).attr("value") == "very_difficult"){
             msg.textContent = "I am Thinking of a number Between 1 to 1000";
-            msg1.textContent = "No. of Guess: " + noOfGuessesVeryDifficult;
+            msg1.textContent = "";
+            level.textContent = "Your current level is: VERY DIFFICULT"
+            second.textContent = "Total Number Of Guess: " + noOfGuessesVeryDifficult
         }
     })
 })
@@ -36,6 +51,10 @@ var msg1 = document.getElementById("message1")
 var msg2 = document.getElementById("message2")  
 var msg3 = document.getElementById("message3")
 var msg = document.getElementById("first")
+var level = document.getElementById("level")
+var second  = document.getElementById("second")
+var allo  = document.getElementById("allo")
+
 // ----------------- choosing the target number ---------------------- //
 var answerVeryEasy = Math.floor(Math.random()*10) + 1;  
 var answerEasy = Math.floor(Math.random()*10) + 1;
@@ -122,21 +141,19 @@ function numberOfTries(){
             msg3.textContent = "Guessed Number Are: " + guesses_num;
         }
         else if(user_guess == getAnswer()){
-            msg1.textContent = "Congratulations! You won !!";
-            msg2.textContent = "the Number was " + getAnswer();
-            msg3.textContent = " ";
+            msg3.textContent = "Congratulations! You won !!";
+            allo.textContent = "the Number was " + getAnswer();
+            msg2.textContent = " ";
+            msg1.textContent = "";
             alert("Congratulations you won. You guessed the number in " + number + " tries");
-            reloadThePage();
+            $("#my_btn").hide()
+            $("#won").show();
+            $("#level").hide();
         }
 
     }
     if (type == "easy"){
-        $noOfGuessesEasy -= 1; 
         
-        if($noOfGuessesEasy<=0){
-            alert("Game over. the number was " + result)
-            reloadThePage();
-        }
         if(user_guess < 1 || user_guess > 10 ){  
             alert("Your Selected Number Must Be In Range of 1 to 10");
             $noOfGuessesEasy += 1;
@@ -158,23 +175,31 @@ function numberOfTries(){
             msg3.textContent = "Guessed Number Are: " + guesses_num;
         }
         else if(user_guess == getAnswer()){
-            msg1.textContent = "Congratulations! You won !!";
-            msg2.textContent = "the Number was " + getAnswer();
-            msg3.textContent = " ";
+            msg3.textContent = "Congratulations! You won !!";
+            allo.textContent = "the Number was " + getAnswer();
+            msg2.textContent = " ";
+            msg1.textContent = "";
             alert("Congratulations you won. You guessed the number in " + number + " tries");
-            reloadThePage();
+            $("#my_btn").hide()
+            $("#won").show();
+            $("#level").hide();
+        }
+        $noOfGuessesEasy -= 1; 
+        
+        if($noOfGuessesEasy<1){
+            msg3.textContent = "You Lost !!";
+            allo.textContent = "the Number was " + getAnswer();
+            msg2.textContent = " ";
+            msg1.textContent = "";
+            alert("Game over. the number was " + result)
+            $("#my_btn").hide()
+            $("#lost").show();
+            $("#level").hide();
         }
     }
 
     if (type == "medium"){
-        noOfGuessesMedium -= 1; 
         
-        
-        if(noOfGuessesMedium<=0){
-            alert("Game over. the number was " + result)
-            reloadThePage();
-            
-        }
         if(user_guess < 1 || user_guess > 100 ){  
             alert("Your Selected Number Must Be In Range of 1 to 100");
             noOfGuessesMedium += 1;
@@ -196,22 +221,34 @@ function numberOfTries(){
             msg3.textContent = "Guessed Number Are: " + guesses_num;
         }
         else if(user_guess == getAnswer()){
-            msg1.textContent = "Congratulations! You won !!";
-            msg2.textContent = "the Number was " + getAnswer();
-            msg3.textContent = " ";
+            msg3.textContent = "Congratulations! You won !!";
+            allo.textContent = "the Number was " + getAnswer();
+            msg2.textContent = " ";
+            msg1.textContent = "";
             alert("Congratulations you won. You guessed the number in " + number + " tries");
-            reloadThePage();
+            $("#my_btn").hide()
+            $("#won").show();
+            $("#level").hide();
+        }
+        noOfGuessesMedium -= 1; 
+        
+        
+        if(noOfGuessesMedium<1){
+            msg3.textContent = "You Lost !!";
+            allo.textContent = "the Number was " + getAnswer();
+            msg2.textContent = " ";
+            msg1.textContent = "";
+            alert("Game over. the number was " + result)
+            $("#my_btn").hide()
+            $("#lost").show();
+            $("#level").hide();
+            
         }
         
     }
 
     if (type == "difficult"){
-        noOfGuessesDifficult -= 1; 
-
-        if(noOfGuessesDifficult<=0){
-            alert("Game over. the number was " + result)
-            reloadThePage();
-        }
+        
         if(user_guess < 1 || user_guess > 500 ){  
             alert("Your Selected Number Must Be In Range of 1 to 500");
             noOfGuessesDifficult += 1;
@@ -233,22 +270,32 @@ function numberOfTries(){
             msg3.textContent = "Guessed Number Are: " + guesses_num;
         }
         else if(user_guess == getAnswer()){
-            msg1.textContent = "Congratulations! You won !!";
-            msg2.textContent = "the Number was " + getAnswer();
-            msg3.textContent = " ";
+            msg3.textContent = "Congratulations! You won !!";
+            allo.textContent = "the Number was " + getAnswer();
+            msg2.textContent = " ";
+            msg1.textContent = "";
             alert("Congratulations you won. You guessed the number in " + number + " tries");
-            reloadThePage();
+            $("#my_btn").hide()
+            $("#won").show();
+            $("#level").hide();
+        }
+        noOfGuessesDifficult -= 1; 
+
+        if(noOfGuessesDifficult<1){
+            msg3.textContent = "You Lost !!";
+            allo.textContent = "the Number was " + getAnswer();
+            msg2.textContent = " ";
+            msg1.textContent = "";
+            alert("Game over. the number was " + result)
+            $("#my_btn").hide()
+            $("#lost").show();
+            $("#level").hide();
         }
         
     }
 
     if (type == "very_difficult"){
-        noOfGuessesVeryDifficult -= 1;
         
-        if(noOfGuessesVeryDifficult<=0){
-            alert("Game over. the number was " + result)
-            reloadThePage();
-        }
         if(user_guess < 1 || user_guess > 1000 ){  
             alert("Your Selected Number Must Be In Range of 1 to 1000");
             noOfGuessesVeryDifficult -= 1;
@@ -270,15 +317,29 @@ function numberOfTries(){
             msg3.textContent = "Guessed Number Are: " + guesses_num;
         }
         else if(user_guess == getAnswer()){
-            msg1.textContent = "Congratulations! You won !!";
-            msg2.textContent = "the Number was " + getAnswer();
-            msg3.textContent = " ";
+            msg3.textContent = "Congratulations! You won !!";
+            allo.textContent = "the Number was " + getAnswer();
+            msg2.textContent = " ";
+            msg1.textContent = "";
             alert("Congratulations you won. You guessed the number in " + number + " tries");
-            reloadThePage();
+            $("#my_btn").hide()
+            $("#won").show();
         }
+        noOfGuessesVeryDifficult -= 1;
         
+        if(noOfGuessesVeryDifficult<1){
+            msg3.textContent = "You Lost !!";
+            allo.textContent = "the Number was " + getAnswer();
+            msg2.textContent = " ";
+            msg1.textContent = "";
+            alert("Game over. the number was " + result)
+            $("#my_btn").hide()
+            $("#lost").show();
+            $("#level").hide();
+        }
     }
     ifChange()
+    $("#second").hide()
      
 
 }

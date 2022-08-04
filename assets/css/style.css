@@ -26,7 +26,35 @@ h4 {
 #message2 {
     color: red;
 }
+#level {
+    display: none;
+    color: blue;
+}
 
 #difficulty {
     color: green;
+}
+button {
+    color: green;
+}
+
+#message3 {
+    display: none;
+    color: blue;
+}
+#second {
+    color: blue;
+}
+
+#won {
+    display: none;
+    color: green;
+}
+
+#lost {
+    display: none;
+    color: red;
+}
+#allo {
+    color: blue;
 }

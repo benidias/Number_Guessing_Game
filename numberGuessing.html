@@ -15,7 +15,9 @@
             <section>
                 <div class="col-md-4" style="padding-top: 50px;">
                     <div class="heading-title heading-dotted text-center">
-                        <h2>Welcome to our Number Guessing Game.</h2>
+                        <h2 id="greet">Welcome to our Number Guessing Game.</h2>
+                        <h2 id="won">YOU WON !!! </h2>
+                        <h2 id="lost">SORRY, YOU LOST !!! THE GAME IS OVER </h2>
                     </div>
                 </div>
                 <div class="row mix-grid">
@@ -25,31 +27,35 @@
                                 <form class="validate" method="post" enctype="multipart/form-data"  data-toastr-position="top-right" >
                                     <fieldset>
                                         <div class="col-md-4">
-                                            <label><span><em>CHOOSE YOUR DIFFICULTY</em></span></label>
+                                            <p id="text"><span><em>CHOOSE YOUR DIFFICULTY</em></span></p>
+                                            <p id="level">Your level is:</p>
+                                            <p id="message3">Guessed number are :</p>
+                                            <p id="second"></p>
+                                            <p id="allo"></p>
                                             <div class="fancy-form">
                                                 <ul id="difficulty">
                                                     <li>
-                                                        <input type="radio" name="difficultyType" value="very_easy"  >Very Easy
+                                                        <input type="radio" name="difficultyType" value="very_easy"  >Very Easy (Unlimited tries)
                                                     </li>
                                                 </ul>
                                                 <ul id="difficulty">
                                                     <li>
-                                                        <input type="radio" name="difficultyType" value="easy" >Easy
+                                                        <input type="radio" name="difficultyType" value="easy" >Easy (5 tries)
                                                     </li>
                                                 </ul>
                                                 <ul id="difficulty">
                                                     <li>
-                                                        <input type="radio" name="difficultyType" value="medium" >Medium
+                                                        <input type="radio" name="difficultyType" value="medium" >Medium (5 tries)
                                                     </li>
                                                 </ul>
                                                 <ul id="difficulty"> 
                                                     <li>
-                                                        <input type="radio" name="difficultyType" value="difficult" >Difficult
+                                                        <input type="radio" name="difficultyType" value="difficult" >Difficult (8 tries)
                                                     </li>
                                                 </ul>
                                                 <ul id="difficulty">
                                                     <li>
-                                                        <input type="radio" name="difficultyType" value="very_difficult" >Very Difficult
+                                                        <input type="radio" name="difficultyType" value="very_difficult" >Very Difficult (9 tries)
                                                     </li>
                                                 </ul>
                                                 
@@ -62,8 +68,12 @@
                                               <button class="btn btn-danger"  onclick="numberOfTries()" type="button"  id="my_btn">GUESS</button>  
                                               <p id="message1">No. of Guess: </p>  
                                               <p id="message2">No. of Guess Remain: </p>  
-                                              <p id="message3">Guessed number are :</p>  
+                                              
+                                              <button type="button" class="btn btn-danger" onclick="reloadThePage()">
+                                                RESTART GAME
+                                              </button>
                                           </div>
+                                          
                                     </fieldset>
                                 </form>
                             </div>
